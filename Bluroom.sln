@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluroom.Server", "Bluroom.Server\Bluroom.Server.csproj", "{4E474DCA-1929-4E81-BE7D-464185DCDD7F}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "bluroom.client", "bluroom.client\bluroom.client.esproj", "{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E474DCA-1929-4E81-BE7D-464185DCDD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E474DCA-1929-4E81-BE7D-464185DCDD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E474DCA-1929-4E81-BE7D-464185DCDD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E474DCA-1929-4E81-BE7D-464185DCDD7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FC0DD4E-0E00-4480-A607-56F8664D1E4B}
+	EndGlobalSection
+EndGlobal
