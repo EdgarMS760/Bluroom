@@ -14,6 +14,8 @@ import { GrupoSubgrupoComponent } from './grupo-subgrupo/grupo-subgrupo.componen
 import { SubgrupoComponent } from './subgrupo/subgrupo.component';
 import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
 import { MuroComponent } from './muro/muro.component';
+import { MensajeEnviadoComponent } from './mensaje-enviado/mensaje-enviado.component';
+import { MensajeRecibidoComponent } from './mensaje-recibido/mensaje-recibido.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MuroComponent } from './muro/muro.component';
     GrupoSubgrupoComponent,
     SubgrupoComponent,
     ListaAlumnosComponent,
-    MuroComponent
+    MuroComponent,
+    MensajeEnviadoComponent,
+    MensajeRecibidoComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
