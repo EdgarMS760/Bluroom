@@ -1,0 +1,37 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('../../assets/Fondos/Logros.png') no-repeat center center;
+  background-size: cover;
+
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+.form-label {
+  display: block;
+  text-align: left;
+  color: #c4c4c4
+}
+a {
+  text-decoration: none;
+  color: #3D65FE;
+  transition: 0.3s;
+}
+
+  a:hover {
+    font-size: 1.2rem;
+    transition: 0.3s;
+  }
+
+
+  .login-form h2 {
+    margin-bottom: 1.5rem;
+  }

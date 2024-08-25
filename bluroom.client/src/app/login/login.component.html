@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login-form">
+    <img class="img-fluid p-5 mb-5" src="../../assets/Fondos/Bluroom v2.png"/>
+    <form (ngSubmit)="onLogin()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username &#x2022;</label>
+        <input type="text" id="username" class="form-control p-3 rounded-3 bg-body-tertiary  border-secondary-subtle border-2" [(ngModel)]="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password &#x2022;</label>
+        <input type="password" id="password" class="form-control p-3 rounded-3 bg-body-tertiary  border-secondary-subtle border-2" [(ngModel)]="password" name="password" required>
+      </div>
+      <app-button btnClass="rounded-5 mt-5 mb-5"
+                  [ngStyle]="{ 'font-size': '2rem' }"
+                  (btnClick)="handleButtonClick()">
+        COMENZAR
+      </app-button>
+      <br />
+      <a routerLink="/register">¿NO TIENES CUENTA?</a>
+
+
+
+    </form>
+  </div>
+</div>
