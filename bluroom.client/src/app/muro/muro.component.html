@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="grupos">
+    <app-grupo-subgrupo [grupoText]="'LMAD'"
+                        [subgrupos]="['Subgrupo 1', 'Subgrupo 2']">
+    </app-grupo-subgrupo>
+    <app-grupo-subgrupo [grupoText]="'LSTI'"
+                        [subgrupos]="['Subgrupo 1', 'Subgrupo 2']">
+    </app-grupo-subgrupo>
+
+  </div>
+  <div class="alumnos">
+    <app-lista-alumnos [alumnos]="listaDeAlumnos"
+                       (alumnoSeleccionado)="onAlumnoSeleccionado($event)">
+    </app-lista-alumnos>
+
+  </div>
+</div>
