@@ -1,10 +1,10 @@
-/* Estilos predeterminados para el botón */
+
 .btn-default {
   background-color: #3D65FE;
   border-color: #3D65FE;
-  border-radius: 30px; /* Bordes redondeados */
-  color: white; /* Color del texto */
-  padding: 10px 50px; /* Espaciado interno */
+  border-radius: 30px; 
+  color: white;
+  padding: 10px 50px;
 }
 
   .btn-default:hover {

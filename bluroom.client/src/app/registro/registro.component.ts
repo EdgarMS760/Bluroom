@@ -21,7 +21,7 @@ export class RegistroComponent {
   onRegister() {
     // Aquí iría la lógica de autenticación
     //if (this.username === 'user' && this.password === 'password') {
-    //  this.router.navigate(['/home']); // Redirige a la página de inicio
+    //  this.router.navigate(['/home']);
     //} else {
     //  alert('Login incorrecto');
     //}
