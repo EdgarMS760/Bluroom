@@ -1,0 +1,59 @@
+:host {
+  font-family: 'GothicA1';
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.7fr 2.2fr 0.1fr;
+  grid-template-rows: 1fr 0.5fr 1.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "grupos muro ."
+    "grupos muro ."
+    "alumnos muro .";
+  height: 95vh;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.grupos {
+  grid-area: grupos;
+  overflow: auto;
+  background: white;
+}
+
+.alumnos {
+  grid-area: alumnos;
+  overflow: auto;
+}
+
+.muro {
+  grid-area: muro;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+form {
+  background: white;
+}
+input{
+    outline:none;
+    border:0
+}
+button {
+  border: none;
+  background: white;
+  color: #3d65fe;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+
+  button:hover {
+    transform: scale(1.3);
+  }

@@ -1,0 +1,17 @@
+<div class="container mt-3 ">
+  <app-button btnClass="rounded-4"
+              (btnClick)="toggleCollapse()">
+    {{ grupoText }}
+  </app-button>
+  <div class="" [@collapseAnimation]="isCollapsed ? 'collapsed' : 'expanded'" class="mt-2">
+    <div class="d-flex row">
+      <app-subgrupo *ngFor="let subgrupo of subgrupos" [subgrupoText]="subgrupo"></app-subgrupo>
+    </div>
+    <button (click)="addSubgrupo()"
+            style="border: none; background: none; padding: 0;">
+      <i class="bi-2xl bi-plus-circle" style="font-size: 2rem;"></i>
+    </button>
+
+
+  </div>
+</div>

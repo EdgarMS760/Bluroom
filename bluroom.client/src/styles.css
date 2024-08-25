@@ -3,3 +3,7 @@
   font-family: 'Heavitas';
   src: url('./assets/fonts/heavitas/Heavitas.ttf');
 }
+@font-face {
+  font-family: 'GothicA1';
+  src: url('./assets/fonts/Gothic_A1/GothicA1-Black.ttf');
+}
