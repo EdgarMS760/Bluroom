@@ -16,6 +16,7 @@ import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
 import { MuroComponent } from './muro/muro.component';
 import { MensajeEnviadoComponent } from './mensaje-enviado/mensaje-enviado.component';
 import { MensajeRecibidoComponent } from './mensaje-recibido/mensaje-recibido.component';
+import { EmailModalComponent } from './email-modal/email-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MensajeRecibidoComponent } from './mensaje-recibido/mensaje-recibido.co
     ListaAlumnosComponent,
     MuroComponent,
     MensajeEnviadoComponent,
-    MensajeRecibidoComponent
+    MensajeRecibidoComponent,
+    EmailModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
