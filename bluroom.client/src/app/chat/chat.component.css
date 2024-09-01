@@ -19,15 +19,16 @@
 
 .chat {
   grid-area: chat;
+  background: #F8F8F8;
 }
 
 form {
-  background: white;
+    border:none;
 }
 
 input {
   outline: none;
-  border: 0
+  border: none;
 }
 
 button {
@@ -44,3 +45,7 @@ button {
   button:hover {
     transform: scale(1.3);
   }
+
+.mensajes {
+  background-color: #F8F8F8;
+}

@@ -11,12 +11,12 @@
       }">
     </app-header-chat>
 
-    <div class="publicaciones flex-grow-1 overflow-auto">
+    <div class="mensajes flex-grow-1 overflow-auto">
       <app-mensaje-enviado *ngFor="let mensaje of mensajesEnviado" [mensaje]="mensaje"></app-mensaje-enviado>
       <app-mensaje-recibido *ngFor="let mensaje of mensajesRecibido" [mensaje]="mensaje"></app-mensaje-recibido>
     </div>
 
-    <form class="border border-primary rounded-4 d-flex p-2 m-4">
+    <form class="border border-primary rounded-3 d-flex m-4">
       <div class="input-group">
         <input type="text" class="form-control border-0" placeholder="Escribe un mensaje..." aria-label="publicar">
         <button type="button">
