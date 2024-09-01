@@ -14,11 +14,25 @@ export class HeaderChatComponent {
   };
 
   @ViewChild('localVideo') localVideo!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoChatContainer') videoChatContainer!: ElementRef<HTMLDivElement>;
+
+  public isMuted = false;
 
   constructor(private webrtcService: WebrtcService) {}
 
   startVideoChat() {
     this.webrtcService.startLocalStream(this.localVideo.nativeElement);
-    this.localVideo.nativeElement.classList.remove('d-none')
+    this.videoChatContainer.nativeElement.classList.remove('d-none')
+
+  }
+  hangUp() {
+    this.webrtcService.hangUp();
+    this.videoChatContainer.nativeElement.classList.add('d-none');
+  }
+
+  toggleMute() {
+
+    this.isMuted = !this.isMuted;
+    this.webrtcService.toggleMute(this.isMuted);
   }
 }

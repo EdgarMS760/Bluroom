@@ -19,4 +19,15 @@
     </button>
   </div>
 </div>
-<video #localVideo autoplay playsinline style="width: 100%; height: auto; border: 1px solid black;" class="d-none"></video>
+<div #videoChatContainer class="video-container position-relative d-none">
+  <video #localVideo autoplay playsinline class="w-80 border"></video>
+  <div class="call-controls position-absolute bottom-0 start-50 translate-middle-x mb-3 rounded-5 p-2">
+    <button (click)="hangUp()" class=" me-4">
+      <i class="bi bi-telephone-x-fill fs-4"></i>
+    </button>
+    <button (click)="toggleMute()" [ngClass]="isMuted ? 'btn-secondary' : ''" class="">
+      <i [ngClass]="isMuted ? 'bi-mic-mute-fill' : 'bi-mic-fill'" class="fs-4"></i>
+    </button>
+
+  </div>
+</div>
