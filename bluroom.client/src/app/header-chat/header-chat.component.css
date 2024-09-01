@@ -1,0 +1,15 @@
+:host{
+    font-family:'heavitas';
+}
+button {
+  border: none;
+  background: white;
+  color: #3d65fe;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+button:hover{
+    background: #e9e9e9
+}
