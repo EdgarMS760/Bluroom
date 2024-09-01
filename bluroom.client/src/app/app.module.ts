@@ -17,6 +17,10 @@ import { MuroComponent } from './muro/muro.component';
 import { MensajeEnviadoComponent } from './mensaje-enviado/mensaje-enviado.component';
 import { MensajeRecibidoComponent } from './mensaje-recibido/mensaje-recibido.component';
 import { EmailModalComponent } from './email-modal/email-modal.component';
+import { SidebarChatComponent } from './sidebar-chat/sidebar-chat.component';
+import { ChatComponent } from './chat/chat.component';
+import { ItemListChatComponent } from './item-list-chat/item-list-chat.component';
+import { HeaderChatComponent } from './header-chat/header-chat.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { EmailModalComponent } from './email-modal/email-modal.component';
     MuroComponent,
     MensajeEnviadoComponent,
     MensajeRecibidoComponent,
-    EmailModalComponent
+    EmailModalComponent,
+    SidebarChatComponent,
+    ChatComponent,
+    ItemListChatComponent,
+    HeaderChatComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

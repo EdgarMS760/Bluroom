@@ -1,0 +1,33 @@
+<div class="container-fluid vh-100 d-flex p-0">
+  <div class="sidebar-chat border-end p-3 d-flex flex-column" style="width: 25%;">
+    <h3 class="d-flex justify-content-start ms-4 mb-5"> Mensajes</h3>
+    <app-sidebar-chat class="flex-grow-1 overflow-auto"></app-sidebar-chat>
+  </div>
+  <div class="chat d-flex flex-column flex-grow-1">
+    <app-header-chat [user]="{
+        image: 'https://via.placeholder.com/50',
+        name: 'Usuario 1',
+        status: 'active'
+      }">
+    </app-header-chat>
+
+    <div class="publicaciones flex-grow-1 overflow-auto">
+      <app-mensaje-enviado *ngFor="let mensaje of mensajesEnviado" [mensaje]="mensaje"></app-mensaje-enviado>
+      <app-mensaje-recibido *ngFor="let mensaje of mensajesRecibido" [mensaje]="mensaje"></app-mensaje-recibido>
+    </div>
+
+    <form class="border border-primary rounded-4 d-flex p-2 m-4">
+      <div class="input-group">
+        <input type="text" class="form-control border-0" placeholder="Escribe un mensaje..." aria-label="publicar">
+        <button type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+          </svg>
+        </button>
+        <button type="button">
+          <i class="bi-send-fill h3"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
