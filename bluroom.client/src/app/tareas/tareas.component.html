@@ -1,0 +1,14 @@
+<div class="tareas-container">
+    <div class="header">
+      <button class="btn">Tareas Pendientes</button>
+      <button class="btn">Tareas Completadas</button>
+      <button class="btn add-task">+</button>
+    </div>
+    
+    <div class="tareas-list">
+      <div class="tarea-card" *ngFor="let tarea of tareas" (click)="verDetalle(tarea)">
+        <p>{{ tarea.titulo }}</p>
+      </div>
+    </div>
+  </div>
+  
