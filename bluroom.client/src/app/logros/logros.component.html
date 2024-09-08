@@ -1,6 +1,6 @@
 <div class="logros-container border border-3 m-4">
     <div class="logros-grid">
-      <div class="logro" *ngFor="let logro of logros">
+      <div class="logro" *ngFor="let logro of logros" [ngClass]="{'logro-completed': logro.completed}">
         <img [src]="logro.icono" alt="Icono Logro">
         <p>{{ logro.titulo }}</p>
       </div>

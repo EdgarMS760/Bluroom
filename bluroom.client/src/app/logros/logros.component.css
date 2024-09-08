@@ -30,6 +30,10 @@
     box-shadow: 0 5px 0px #c6c6c6;
   }
   
+  .logro-completed {
+    border: 5px solid #3d65fe;
+    box-shadow: 0 5px 0px #c6c6c6;
+  }
   .logro img {
     width: 80px;
     height: 140px;
