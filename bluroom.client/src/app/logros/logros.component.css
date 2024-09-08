@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: 100vh;
+  }
+  
+  .logros-container {
+    padding: 3%;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .logros-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    
+  }
+  
+  .logro {
+    color: #c6c6c6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    border: 5px solid #c6c6c6;
+    box-shadow: 0 5px 0px #c6c6c6;
+  }
+  
+  .logro img {
+    width: 80px;
+    height: 140px;
+  }
