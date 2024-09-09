@@ -21,8 +21,8 @@ export class MuroComponent {
     { id: 11, nombre: 'Jesus De La Cruz', fotoUrl: 'https://picsum.photos/200' },
     { id: 12, nombre: 'Gael Reyes', fotoUrl: 'https://picsum.photos/200' }
   ];
-  mensajesEnviado: string[] = ['hola', 'que tal'];
-  mensajesRecibido: string[] = ['hola', 'nada aqui'];
+  mensajesEnviado: string[] = ['hola grupo', 'el proyecto se entrega la siguiente semana'];
+  mensajesRecibido: string[] = ['enterado', 'como asi?'];
 
   onAlumnoSeleccionado(alumno: Alumno) {
     console.log('Alumno seleccionado:', alumno);

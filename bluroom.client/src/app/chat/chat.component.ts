@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent {
-  mensajesEnviado: string[] = ['ewe', 'q roio'];
-  mensajesRecibido: string[] = ['k we', 'q roio de q'];
+  mensajesEnviado: string[] = ['hola', 'que tal'];
+  mensajesRecibido: string[] = ['hola', 'nada aqui'];
 }
