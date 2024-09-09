@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'tarea-descripcion', component: DetalleTareaComponent},
   { path: 'crear-tarea', component: CrearTareaComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
