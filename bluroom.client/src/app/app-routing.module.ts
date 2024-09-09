@@ -39,6 +39,8 @@ const routes: Routes = [
       { path: 'mensajes', component: ChatComponent },
       { path: 'logros', component: LogrosComponent },
       { path: 'tareas', component: TareasComponent },
+      { path: 'tarea-descripcion', component: DetalleTareaComponent },
+      { path: 'crear-tarea', component: CrearTareaComponent }
     ]
   }
 ];
