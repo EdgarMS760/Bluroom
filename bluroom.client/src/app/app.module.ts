@@ -51,7 +51,7 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
     LogrosComponent,
     TareasComponent,
     DetalleTareaComponent,
-    CrearTareaComponent
+    CrearTareaComponent,
     SidebarComponent,
     MainLayoutComponent,
     AuthLayoutComponent
