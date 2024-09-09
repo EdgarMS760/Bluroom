@@ -1,8 +1,17 @@
-<div class="logros-container border border-3 m-4">
-    <div class="logros-grid">
-      <div class="logro" *ngFor="let logro of logros" [ngClass]="{'logro-completed': logro.completed}">
-        <img [src]="logro.icono" alt="Icono Logro">
-        <p>{{ logro.titulo }}</p>
+<app-nav></app-nav>
+<div class="main-layout">
+  <app-sidebar></app-sidebar>
+  <div class="container">
+    <div class="logros-header">
+      <!-- Puedes agregar un título o descripción aquí -->
+    </div>
+    <div class="logros-content">
+      <div class="logros-grid">
+        <div class="logro" *ngFor="let logro of logros" [ngClass]="{'logro-completed': logro.completed}">
+          <img [src]="logro.icono" alt="Icono Logro">
+          <p>{{ logro.titulo }}</p>
+        </div>
       </div>
     </div>
   </div>
+</div>
