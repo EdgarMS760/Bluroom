@@ -23,10 +23,10 @@ interface Tarea {
 export class TareasComponent {
   
   tareas: Tarea[] = [
-    { titulo: 'Práctica - Proyecto Final', grupo: 'LMAD', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente' },
-    { titulo: 'Práctica 1 - Diseño Ventanas', grupo: 'LMAD', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente' },
-    { titulo: 'Práctica 2 - Diseño Ventanas', grupo: 'LMAD', subgrupo: 'Subgrupo 2', descripcion: 'Descripción de la tarea...', estado: 'completada' },
-    { titulo: 'Práctica 3 - Diseño Ventanas', grupo: 'OTRO', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente' }
+    { titulo: 'Práctica - Proyecto Final', grupo: 'LMAD', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente'},
+    { titulo: 'Práctica 1 - Diseño Ventanas', grupo: 'LMAD', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente'},
+    { titulo: 'Práctica 2 - Diseño Ventanas', grupo: 'LMAD', subgrupo: 'Subgrupo 2', descripcion: 'Descripción de la tarea...', estado: 'completada'},
+    { titulo: 'Práctica 3 - Diseño Ventanas', grupo: 'OTRO', subgrupo: 'Subgrupo 1', descripcion: 'Descripción de la tarea...', estado: 'pendiente'}
   ];
   grupos: Grupo[] = [
     { nombre: 'LMAD', seleccionado: true, subgrupos: ['Subgrupo 1', 'Subgrupo 2'] },
@@ -71,6 +71,6 @@ export class TareasComponent {
   }
 
   verDetalle(tarea: Tarea) {
-    this.router.navigate(['/tarea', tarea.titulo]);
+    this.router.navigate(['/tarea-descripcion']);
   }
 }

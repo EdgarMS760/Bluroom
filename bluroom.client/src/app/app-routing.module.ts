@@ -6,6 +6,7 @@ import { MuroComponent } from './muro/muro.component';
 import { ChatComponent } from './chat/chat.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { LogrosComponent } from './logros/logros.component';
+import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
 
 const routes: Routes = [
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'mensajes', component: ChatComponent },
   { path: 'logros', component: LogrosComponent},
   { path: 'tareas', component: TareasComponent},
+  { path: 'tarea-descripcion', component: DetalleTareaComponent}
 ];
 
 @NgModule({
