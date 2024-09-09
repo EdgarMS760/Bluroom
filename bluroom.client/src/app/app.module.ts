@@ -24,6 +24,9 @@ import { HeaderChatComponent } from './header-chat/header-chat.component';
 import { LogrosComponent } from './logros/logros.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
     HeaderChatComponent,
     LogrosComponent,
     TareasComponent,
-    DetalleTareaComponent
+    DetalleTareaComponent,
+    SidebarComponent,
+    MainLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

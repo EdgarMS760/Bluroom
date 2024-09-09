@@ -6,16 +6,42 @@ import { MuroComponent } from './muro/muro.component';
 import { ChatComponent } from './chat/chat.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { LogrosComponent } from './logros/logros.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 
 const routes: Routes = [
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistroComponent },
-  { path: 'muro', component: MuroComponent },
-  { path: 'mensajes', component: ChatComponent },
-  { path: 'logros', component: LogrosComponent},
-  { path: 'tareas', component: TareasComponent},
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: AuthLayoutComponent,
+    children: [
+      { path: '', component: LoginComponent }
+    ]
+  },
+  {
+    path: 'register',
+    component: AuthLayoutComponent,
+    children: [
+      { path: '', component: RegistroComponent }
+    ]
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: 'muro', component: MuroComponent },
+      { path: 'mensajes', component: ChatComponent },
+      { path: 'logros', component: LogrosComponent },
+      { path: 'tareas', component: TareasComponent },
+    ]
+  }
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
