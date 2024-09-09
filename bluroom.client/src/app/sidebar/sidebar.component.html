@@ -1,0 +1,38 @@
+<div class="d-flex flex-column vh-100 sidebar">
+  <div class="p-3">
+    <img src="../../assets/LOGOTIPO/IMG/BluRoom.png" alt="Logo" class="img-fluid mb-4 p-4">
+  </div>
+
+  <ul class="nav flex-column mb-auto px-5">
+    <li class="nav-item mb-3">
+      <a routerLink="/mensajes" routerLinkActive="active" class="nav-link d-flex align-items-center ">
+        <i class="me-4 bi bi-chat-dots-fill"></i>
+        <span>Mensajes</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-3">
+      <a routerLink="/tareas" routerLinkActive="active" class="nav-link d-flex align-items-center ">
+        <i class="me-4 bi bi-pencil-square"></i>
+        <span>Tareas</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-3">
+      <a routerLink="/logros" routerLinkActive="active" class="nav-link d-flex align-items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill me-4" viewBox="0 0 16 16">
+          <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
+          <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126l-1.982-1.025z" />
+        </svg>
+        <span>Logros</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="p-3 mt-auto">
+    <a routerLink="/login" class="nav-link text-muted d-flex align-items-center text-tertiary">
+      <i class="bi bi-box-arrow-right me-4"></i>
+      <span>Cerrar sesión</span>
+    </a>
+  </div>
+</div>

@@ -16,12 +16,8 @@ export class LoginComponent {
     console.log('Botón clickeado');
   }
 
-  onLogin() {
-    // Aquí iría la lógica de autenticación
-    //if (this.username === 'user' && this.password === 'password') {
-    //  this.router.navigate(['/home']);
-    //} else {
-    //  alert('Login incorrecto');
-    //}
+
+  onLoginSuccess() {
+    this.router.navigate(['/mensajes']);
   }
 }
