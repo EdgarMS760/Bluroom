@@ -1,49 +1,169 @@
 .container {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  .main-content {
-    padding: 20px;
-  }
-  
-  .tareas-container .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .tareas-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .tarea-card {
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .detalle-tarea {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .detalle-tarea .btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  height: 100vh;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.sidebar {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar h2 {
+  color: #525252;
+  margin-bottom: 10px;
+}
+
+.btn-group {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 10px;
+}
+
+.group-btn, .subgroup-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header .btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+.header .add-task-btn {
+  background-color: #3d65fe;
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; 
+}
+
+.header .add-task-btn i {
+  font-size: 20px;
+}
+.tareas-container {
+  padding: 15px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.tarea-card {
+  background-color: #d3d3d3;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tarea-card:hover {
+  background-color: #b0b0b0;
+}
+
+.tarea-card p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.main-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tareas-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Botón de grupo */
+.group-btn {
+  background-color: #3d65fe;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Botón de subgrupo (link simple) */
+.subgroup-btn {
+  color: #525252;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  background: none;
+  text-align: center;
+  width: 100%;
+}
+
+.subgroup-btn.active {
+  color: #3d65fe;
+  font-weight: bold;
+}
+
+.subgroup-btn:hover {
+  color: #3d65fe;
+  background: none;
+}
+
+/* Botones de pendientes y completadas */
+.tareas-pendientes-btn {
+  background-color: #d3d3d3;
+
+  color: #333;
+}
+
+.tareas-pendientes-btn.active {
+  background-color: #3d65fe;
+  color: white;
+}
+
+.tareas-completadas-btn {
+  background-color: #d3d3d3;
+  color: #333;
+}
+
+.tareas-completadas-btn.active {
+  background-color: #3d65fe;
+  color: white;
+}

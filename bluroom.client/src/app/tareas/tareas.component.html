@@ -1,14 +1,38 @@
-<div class="tareas-container">
-    <div class="header">
-      <button class="btn">Tareas Pendientes</button>
-      <button class="btn">Tareas Completadas</button>
-      <button class="btn add-task">+</button>
-    </div>
-    
-    <div class="tareas-list">
-      <div class="tarea-card" *ngFor="let tarea of tareas" (click)="verDetalle(tarea)">
-        <p>{{ tarea.titulo }}</p>
+<div class="container">
+  <div class="sidebar">
+    <h2>Tareas</h2>
+    <div *ngFor="let grupo of grupos">
+      <button (click)="seleccionarGrupo(grupo)" [ngClass]="['group-btn', grupo.seleccionado ? 'active' : '']">
+        {{ grupo.nombre }}
+      </button>
+      <div *ngIf="grupo.seleccionado">
+        <div *ngFor="let subgrupo of grupo.subgrupos" (click)="seleccionarSubgrupo(subgrupo)" 
+          [ngClass]="{'subgroup-btn': true, 'active': subgrupoSeleccionado === subgrupo}">
+          {{ subgrupo }}
+        </div>
       </div>
     </div>
   </div>
-  
+
+  <div class="main-content">
+    <div class="tareas-container">
+      <div class="header">
+        <button class="btn tareas-pendientes-btn" 
+          [ngClass]="{'active': estadoSeleccionado === 'pendientes'}" 
+          (click)="seleccionarEstado('pendientes')">Tareas Pendientes</button>
+        <button class="btn tareas-completadas-btn" 
+          [ngClass]="{'active': estadoSeleccionado === 'completadas'}" 
+          (click)="seleccionarEstado('completadas')">Tareas Completadas</button>
+          <button class="btn add-task-btn d-flex justify-content-center align-items-center">
+            <i class="bi bi-plus-lg fw-bold"></i>
+          </button>
+      </div>
+
+      <div class="tareas-list">
+        <div class="tarea-card" *ngFor="let tarea of tareasFiltradas" (click)="verDetalle(tarea)">
+          <p>{{ tarea.titulo }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
