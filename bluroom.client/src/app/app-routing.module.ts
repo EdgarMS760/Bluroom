@@ -7,6 +7,7 @@ import { ChatComponent } from './chat/chat.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { LogrosComponent } from './logros/logros.component';
 import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
+import { CrearTareaComponent } from './crear-tarea/crear-tarea.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'mensajes', component: ChatComponent },
   { path: 'logros', component: LogrosComponent},
   { path: 'tareas', component: TareasComponent},
-  { path: 'tarea-descripcion', component: DetalleTareaComponent}
+  { path: 'tarea-descripcion', component: DetalleTareaComponent},
+  { path: 'crear-tarea', component: CrearTareaComponent}
 ];
 
 @NgModule({

@@ -24,6 +24,7 @@ import { HeaderChatComponent } from './header-chat/header-chat.component';
 import { LogrosComponent } from './logros/logros.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
+import { CrearTareaComponent } from './crear-tarea/crear-tarea.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
     HeaderChatComponent,
     LogrosComponent,
     TareasComponent,
-    DetalleTareaComponent
+    DetalleTareaComponent,
+    CrearTareaComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
