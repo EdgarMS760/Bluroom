@@ -1,12 +1,15 @@
 <app-nav></app-nav>
-<div class="container">
-  <div class="header">
-    {{ tareaTitulo }}
-  </div>
-  <div class="content">
-    {{ tareaDescripcion }}
-  </div>
-  <div class="button-container">
-    <button class="button" (click)="completarTarea()">COMPLETAR</button>
+<div class="main-layout">
+  <app-sidebar></app-sidebar>
+  <div class="container">
+    <div class="header">
+      {{ tareaTitulo }}
+    </div>
+    <div class="content">
+      {{ tareaDescripcion }}
+    </div>
+    <div class="button-container">
+      <button class="button" (click)="completarTarea()">COMPLETAR</button>
+    </div>
   </div>
 </div>

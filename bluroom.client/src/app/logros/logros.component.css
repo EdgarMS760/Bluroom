@@ -1,40 +1,53 @@
-.container {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    height: 100vh;
-  }
-  
-  .logros-container {
-    padding: 3%;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .logros-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    
-  }
-  
-  .logro {
-    color: #c6c6c6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-radius: 15px;
-    border: 5px solid #c6c6c6;
-    box-shadow: 0 5px 0px #c6c6c6;
-  }
-  
-  .logro-completed {
-    border: 5px solid #3d65fe;
-    box-shadow: 0 5px 0px #c6c6c6;
-  }
-  .logro img {
-    width: 80px;
-    height: 140px;
-  }
+.main-layout {
+  display: flex;
+}
+
+
+.logros-header {
+  border-radius: 8px 8px 0 0;
+  padding: 10px;
+  text-align: left;
+  width: 100%; 
+  font-size: 24px;
+}
+
+.logros-content {
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.logro {
+  color: #c6c6c6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  border: 5px solid #c6c6c6;
+  box-shadow: 0 5px 0px #c6c6c6;
+  max-width: 100%; /* Ajusta el ancho del logro */
+}
+
+.logro-completed {
+  border: 5px solid #3d65fe;
+  box-shadow: 0 5px 0px #c6c6c6;
+  color: rgb(68, 68, 68);
+}
+
+.logro img {
+  height: 150px;
+  max-width: 100%; /* Ajusta el ancho de la imagen */
+}
