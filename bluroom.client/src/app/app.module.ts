@@ -28,6 +28,8 @@ import { CrearTareaComponent } from './crear-tarea/crear-tarea.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
+import { InicioComponent } from './Home/inicio/inicio.component';
+import { GrupoCardComponent } from './Home/grupo-card/grupo-card.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
     CrearTareaComponent,
     SidebarComponent,
     MainLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    InicioComponent,
+    GrupoCardComponent
 
   ],
   imports: [

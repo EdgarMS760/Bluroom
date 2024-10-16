@@ -10,6 +10,7 @@ import { DetalleTareaComponent } from './detalle-tarea/detalle-tarea.component';
 import { CrearTareaComponent } from './crear-tarea/crear-tarea.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { InicioComponent } from './Home/inicio/inicio.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
+      { path: 'inicio', component: InicioComponent},
       { path: 'muro', component: MuroComponent },
       { path: 'mensajes', component: ChatComponent },
       { path: 'logros', component: LogrosComponent },
