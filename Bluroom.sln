@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluroom.Server", "Bluroom.Server\Bluroom.Server.csproj", "{4E474DCA-1929-4E81-BE7D-464185DCDD7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluroom.Server", "Bluroom.Server\Bluroom.Server.csproj", "{4E474DCA-1929-4E81-BE7D-464185DCDD7F}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "bluroom.client", "bluroom.client\bluroom.client.esproj", "{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{EE7100AA-6289-4C7E-A904-AA52B42B8F38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C90EE70-EBBC-4EA9-BCA0-F6F3072A360C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EE7100AA-6289-4C7E-A904-AA52B42B8F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7100AA-6289-4C7E-A904-AA52B42B8F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7100AA-6289-4C7E-A904-AA52B42B8F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7100AA-6289-4C7E-A904-AA52B42B8F38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
