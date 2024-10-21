@@ -17,9 +17,6 @@ namespace DB
 
         public int Tipo_Chat { get; set; }
 
-        public DateTime Fecha_Creacion { get; set; }
-
-
         public virtual ICollection<Mensaje> Mensajes { get; set; }
     }
 }

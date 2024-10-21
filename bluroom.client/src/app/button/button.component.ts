@@ -8,12 +8,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent {
   @Input() btnClass: string = 'btn-default';
   @Input() btnStyle: any = {};
-  @Input() isDisabled: boolean = false;
   @Output() btnClick = new EventEmitter<void>();
 
   onClick() {
-    if (!this.isDisabled) {
-      this.btnClick.emit(); // Emite el evento solo si el botón no está deshabilitado
-    }
+    this.btnClick.emit();
   }
 }

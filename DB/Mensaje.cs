@@ -19,9 +19,6 @@ namespace DB
 
         public int Chat_Id {  get; set; }
 
-        public bool EsVisto { get; set; }
-
-
         [ForeignKey("Chat_Id")]
         public virtual Chat Chat { get; set; }
         [ForeignKey("Usuario_id")]

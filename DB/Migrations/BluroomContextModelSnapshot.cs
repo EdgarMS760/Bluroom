@@ -30,9 +30,6 @@ namespace DB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Chat_Id"));
 
-                    b.Property<DateTime>("Fecha_Creacion")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,9 +60,6 @@ namespace DB.Migrations
                     b.Property<int>("Emisor_Id")
                         .HasColumnType("int");
 
-                    b.Property<bool>("EsVisto")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("Fecha_Envio")
                         .HasColumnType("datetime2");
 
@@ -92,9 +86,6 @@ namespace DB.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EstaEnLinea")
-                        .HasColumnType("bit");
 
                     b.Property<string>("FullName")
                         .IsRequired()
