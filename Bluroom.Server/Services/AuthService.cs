@@ -8,7 +8,7 @@ namespace Bluroom.Server.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly BluroomContext _context; // Cambia esto por tu DbContext real
+        private readonly BluroomContext _context;
 
         public AuthService(BluroomContext context)
         {
@@ -17,17 +17,15 @@ namespace Bluroom.Server.Services
 
         public async Task<Usuario> Register(UsuarioRegistroDTO registroDto)
         {
-            // Verificar si el usuario ya existe
             if (await _context.Usuarios.AnyAsync(u => u.Email == registroDto.Email))
                 throw new Exception("El correo ya está en uso");
 
-            // Crear nuevo usuario
             var usuario = new Usuario
             {
                 FullName = registroDto.FullName,
                 Email = registroDto.Email,
-                PasswordHash = HashPassword(registroDto.Password), // Hashear la contraseña
-                EstaEnLinea = false // Inicialmente no está en línea
+                PasswordHash = HashPassword(registroDto.Password), 
+                EstaEnLinea = false
             };
 
             _context.Usuarios.Add(usuario);
@@ -55,7 +53,6 @@ namespace Bluroom.Server.Services
             return Convert.ToBase64String(hashBytes);
         }
 
-        // Método para verificar la contraseña
         private bool VerifyPassword(string password, string storedHash)
         {
             var hashBytes = Convert.FromBase64String(storedHash);

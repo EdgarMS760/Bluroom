@@ -30,7 +30,7 @@ export class ChatComponent {
     if (this.mensaje.trim() !== '') {
       console.log("si entra 2")
       this.signalRService.enviarMensaje(this.usuario, this.mensaje);
-      this.mensaje = '';  // Limpiar el campo de entrada
+      this.mensaje = ''; 
     }
   }
 }

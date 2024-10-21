@@ -13,7 +13,7 @@ export class ButtonComponent {
 
   onClick() {
     if (!this.isDisabled) {
-      this.btnClick.emit(); // Emite el evento solo si el botón no está deshabilitado
+      this.btnClick.emit(); 
     }
   }
 }

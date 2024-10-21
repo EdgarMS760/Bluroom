@@ -24,7 +24,7 @@ export class RegistroComponent {
       return;
     }
 
-    this.loading = true; // Inicia la carga
+    this.loading = true; 
     this.authService.register(this.fullname, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Registro exitoso', response);
@@ -35,7 +35,7 @@ export class RegistroComponent {
         alert('Error al registrar: ' + error.error);
       },
       complete: () => {
-        this.loading = false; // Termina la carga
+        this.loading = false; 
       }
     });
   }
