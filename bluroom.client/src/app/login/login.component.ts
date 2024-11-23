@@ -21,7 +21,7 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         console.log('Inicio de sesión exitoso', response);
-        this.onLoginSuccess(); 
+        this.onLoginSuccess(response); 
       },
       error: (error) => {
         console.error('Error al iniciar sesión', error);
@@ -30,7 +30,9 @@ export class LoginComponent {
     });
   }
 
-  onLoginSuccess() {
-    this.router.navigate(['/inicio']); 
+  onLoginSuccess(response: any) {
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('usuario', JSON.stringify(response.usuario));
+    this.router.navigate(['/inicio']);
   }
 }

@@ -1,5 +1,6 @@
-﻿using Bluroom.Server.Dtos;
-using Bluroom.Server.Services;
+﻿using Bluroom.Server.Dtos.User;
+using Bluroom.Server.Services.Interfaces;
+using DB;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bluroom.Server.Controllers
@@ -34,8 +35,12 @@ namespace Bluroom.Server.Controllers
         {
             try
             {
-                var token = await _authService.Login(loginDto);
-                return Ok(new { Token = token }); // Retornar el token
+                var (usuario, token) = await _authService.Login(loginDto);
+                return Ok(new
+                {
+                    Usuario = usuario,
+                    Token = token
+                });
             }
             catch (Exception ex)
             {
