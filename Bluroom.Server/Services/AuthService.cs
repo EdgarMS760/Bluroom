@@ -33,6 +33,7 @@ namespace Bluroom.Server.Services
                 FullName = registroDto.FullName,
                 Email = registroDto.Email,
                 PasswordHash = HashPassword(registroDto.Password),
+                Avatar = AsignarAvatarAleatorio(),
                 EstaEnLinea = false
             };
 
@@ -56,11 +57,18 @@ namespace Bluroom.Server.Services
                 Id = usuario.Usuario_Id,
                 Nombre = usuario.FullName,
                 Email = usuario.Email,
+                Avatar = usuario.Avatar.ToString(),
                 EstaEnLinea = usuario.EstaEnLinea
             };
             var token = GenerarToken(usuario);
 
             return (userSession, token);
+        }
+        private Avatar AsignarAvatarAleatorio()
+        {
+            var valores = Enum.GetValues(typeof(Avatar)); 
+            var random = new Random();
+            return (Avatar)valores.GetValue(random.Next(valores.Length)); 
         }
 
         private string HashPassword(string password)

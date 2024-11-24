@@ -6,11 +6,18 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DB.Migrations
 {
     /// <inheritdoc />
-    public partial class modelosChatupdated : Migration
+    public partial class avatarUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "Avatar",
+                table: "Usuarios",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.AddColumn<bool>(
                 name: "EstaEnLinea",
                 table: "Usuarios",
@@ -36,6 +43,10 @@ namespace DB.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "Avatar",
+                table: "Usuarios");
+
             migrationBuilder.DropColumn(
                 name: "EstaEnLinea",
                 table: "Usuarios");
