@@ -36,6 +36,7 @@ namespace Bluroom.Server.Controllers
             try
             {
                 var (usuario, token) = await _authService.Login(loginDto);
+
                 return Ok(new
                 {
                     Usuario = usuario,
