@@ -10,5 +10,8 @@ namespace DB
         public DbSet<Mensaje> Mensajes { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Grupo> Grupos { get; set; }
+        public DbSet<SubGrupo> Subgrupos { get; set; }
+       
     }
+
 }

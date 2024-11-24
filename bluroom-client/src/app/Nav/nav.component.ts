@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
 
     if (storedUser) {
       this.usuario = JSON.parse(storedUser);
-      this.getImageUrl(this.usuario.avatar);
+      //this.getImageUrl(this.usuario.avatar);
     }
 
   

@@ -27,6 +27,9 @@ builder.Services.AddDbContext<BluroomContext>(options =>
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
+builder.Services.AddScoped<ISubGroup, SubGroupService>();
+
+
 builder.Services.Configure<JwtSettings>(options =>
 {
     options.Key = Environment.GetEnvironmentVariable("JWT_SECRET");
