@@ -15,7 +15,7 @@
       </button>
 
       <div class="d-flex align-items-center">
-        <img [src]="avatar" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+        <img *ngIf="avatar$ | async as avatar" [src]="avatar" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
         <span class="fw-bold">{{ usuario?.nombre }}</span>
       </div>
     </div>

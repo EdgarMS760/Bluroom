@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { getStorage, ref, getDownloadURL } from '@angular/fire/storage';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { StorageService } from '../services/storageFB.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -9,25 +11,22 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class NavComponent implements OnInit {
   usuario: any = null;
-  avatar: string = ""
-  constructor(private storage: AngularFireStorage) { }
+  avatar$: Observable<string> = new Observable();
+
+  constructor(private storageService: StorageService) { }
+
   ngOnInit(): void {
 
     const storedUser = localStorage.getItem('usuario');
 
     if (storedUser) {
       this.usuario = JSON.parse(storedUser);
+      this.getImageUrl(this.usuario.avatar);
     }
-    const storage = getStorage();
-    const imageRef = ref(storage, 'avatar/avatar1.webp'); // Ruta de la imagen en Firebase
 
-    getDownloadURL(imageRef)
-      .then((url) => {
-        this.avatar = url;
-      })
-      .catch((error) => {
-        console.error('Error al obtener la URL:', error);
-      });
   
+  }
+  getImageUrl(avatar : string) {
+    this.avatar$ = this.storageService.getDownloadURL('avatar/' + avatar + '.png');
   }
 }

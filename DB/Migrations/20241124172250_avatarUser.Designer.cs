@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(BluroomContext))]
-    [Migration("20241021002244_modelosChatupdated")]
-    partial class modelosChatupdated
+    [Migration("20241124172250_avatarUser")]
+    partial class avatarUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,6 +91,9 @@ namespace DB.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Usuario_Id"));
+
+                    b.Property<int>("Avatar")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

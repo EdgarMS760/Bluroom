@@ -17,7 +17,16 @@ namespace DB
         public string Email { get; set; }
         public string PasswordHash { get; set; }
 
+        public Avatar Avatar { get; set; }
         public bool EstaEnLinea { get; set; }
 
+    }
+    public enum Avatar
+    {
+        avatar1 = 1,
+        avatar2 = 2,
+        avatar3 = 3,
+        avatar4 = 4,
+        avatar5 = 5
     }
 }
