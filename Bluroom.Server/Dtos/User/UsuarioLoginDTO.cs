@@ -1,4 +1,4 @@
-﻿namespace Bluroom.Server.Dtos
+﻿namespace Bluroom.Server.Dtos.User
 {
     public class UsuarioLoginDTO
     {

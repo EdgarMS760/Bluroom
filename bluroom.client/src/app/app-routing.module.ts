@@ -11,6 +11,7 @@ import { CrearTareaComponent } from './crear-tarea/crear-tarea.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { InicioComponent } from './Home/inicio/inicio.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -19,22 +20,18 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
+    path: '',
     component: AuthLayoutComponent,
     children: [
-      { path: '', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegistroComponent },
     ]
   },
-  {
-    path: 'register',
-    component: AuthLayoutComponent,
-    children: [
-      { path: '', component: RegistroComponent }
-    ]
-  },
+
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'inicio', component: InicioComponent},
       { path: 'muro', component: MuroComponent },
