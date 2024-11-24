@@ -4,6 +4,7 @@ using DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(BluroomContext))]
-    partial class BluroomContextModelSnapshot : ModelSnapshot
+    [Migration("20241124172250_avatarUser")]
+    partial class avatarUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,31 +46,6 @@ namespace DB.Migrations
                     b.HasKey("Chat_Id");
 
                     b.ToTable("Chats");
-                });
-
-            modelBuilder.Entity("DB.Grupo", b =>
-                {
-                    b.Property<int>("Grupo_Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Grupo_Id"));
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Usuario_Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Grupo_Id");
-
-                    b.HasIndex("Usuario_Id");
-
-                    b.ToTable("Grupos");
                 });
 
             modelBuilder.Entity("DB.Mensaje", b =>
@@ -137,17 +115,6 @@ namespace DB.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("DB.Grupo", b =>
-                {
-                    b.HasOne("DB.Usuario", "Creador")
-                        .WithMany("GruposCreados")
-                        .HasForeignKey("Usuario_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Creador");
-                });
-
             modelBuilder.Entity("DB.Mensaje", b =>
                 {
                     b.HasOne("DB.Chat", "Chat")
@@ -170,11 +137,6 @@ namespace DB.Migrations
             modelBuilder.Entity("DB.Chat", b =>
                 {
                     b.Navigation("Mensajes");
-                });
-
-            modelBuilder.Entity("DB.Usuario", b =>
-                {
-                    b.Navigation("GruposCreados");
                 });
 #pragma warning restore 612, 618
         }

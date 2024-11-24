@@ -1,4 +1,6 @@
-﻿namespace Bluroom.Server.Dtos.User
+﻿
+
+namespace Bluroom.Server.Dtos.User
 {
     public class UsuarioSessionDTO
     {
@@ -6,6 +8,7 @@
         public string Nombre { get; set; }
         public string Email { get; set; }
         public bool EstaEnLinea { get; set; }
+        public string Avatar { get; set; }
 
     }
 }

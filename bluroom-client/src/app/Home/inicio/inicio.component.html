@@ -1,0 +1,44 @@
+<div class="container d-flex flex-wrap justify-content-center gap-3">
+  <app-grupo-card *ngFor="let group of groups"
+                  [groupName]="group.name"
+                  [groupId]="group.id">
+  </app-grupo-card>
+</div>
+
+<button type="button"
+        class="btn btn-primary fab-button"
+        data-bs-toggle="modal"
+        data-bs-target="#createGroupModal">
+  +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="createGroupModal" tabindex="-1" aria-labelledby="createGroupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createGroupModalLabel">Crear Nuevo Grupo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="createGroup()" #groupForm="ngForm">
+          <div class="mb-3">
+            <label for="groupName" class="form-label">Nombre del Grupo</label>
+            <input type="text"
+                   class="form-control"
+                   id="groupName"
+                   [(ngModel)]="newGroupName"
+                   name="groupName"
+                   required />
+          </div>
+          <button type="submit"
+                  class="btn btn-primary w-100"
+                  [disabled]="groupForm.invalid"
+                  data-bs-dismiss="modal">
+            Crear
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
