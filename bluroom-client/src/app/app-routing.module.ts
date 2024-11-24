@@ -34,7 +34,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'inicio', component: InicioComponent},
-      { path: 'muro', component: MuroComponent },
+      { path: 'muro/:idgrupo', component: MuroComponent },
       { path: 'mensajes', component: ChatComponent },
       { path: 'logros', component: LogrosComponent },
       { path: 'tareas', component: TareasComponent },

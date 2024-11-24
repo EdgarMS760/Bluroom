@@ -20,6 +20,8 @@ namespace DB
         public Avatar Avatar { get; set; }
         public bool EstaEnLinea { get; set; }
 
+        public virtual ICollection<Grupo> GruposCreados { get; set; }
+
     }
     public enum Avatar
     {
