@@ -29,6 +29,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<ISubGroup, SubGroupService>();
 builder.Services.AddScoped<ISubgroupUser, SubgroupUserService>();
+builder.Services.AddScoped<IChatService, ChatService>();
 
 
 builder.Services.Configure<JwtSettings>(options =>

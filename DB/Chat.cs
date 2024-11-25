@@ -12,14 +12,20 @@ namespace DB
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Chat_Id { get; set; }
-        public string Nombre { get; set; }
+        public int Chat_id { get; set; }
 
-        public int Tipo_Chat { get; set; }
+        [Required]
+        public int Usuario1Id { get; set; } 
 
-        public DateTime Fecha_Creacion { get; set; }
+        [Required]
+        public int Usuario2Id { get; set; } 
 
+        [ForeignKey(nameof(Usuario1Id))]
+        public virtual Usuario Usuario1 { get; set; } 
 
-        public virtual ICollection<Mensaje> Mensajes { get; set; }
+        [ForeignKey(nameof(Usuario2Id))]
+        public virtual Usuario Usuario2 { get; set; } 
+
+        public DateTime FechaCreacion { get; set; } 
     }
 }

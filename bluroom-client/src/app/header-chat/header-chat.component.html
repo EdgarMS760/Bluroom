@@ -4,7 +4,7 @@
     <div>
       <h5 class="mb-0">{{ user.name }}</h5>
       <small [class.text-success]="user.status === 'active'" [class.text-muted]="user.status !== 'active'">
-        {{ user.status === 'active' ? 'ACTIVO (A) AHORA' : 'NO DISPONIBLE' }}
+        {{ user.status === 'active' ? 'ACTIVO (A) AHORA' : 'DESCONECTADO' }}
       </small>
     </div>
   </div>
