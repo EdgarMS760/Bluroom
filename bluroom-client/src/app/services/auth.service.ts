@@ -23,6 +23,12 @@ export class AuthService {
     });
 
   }
+  logout(iduser : number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/logout`, {
+      user_id: iduser
+    });
+
+  }
   saveToken(token: string): void {
     localStorage.setItem('token', token);
   }

@@ -7,5 +7,6 @@ namespace Bluroom.Server.Services.Interfaces
     {
         Task<Usuario> Register(UsuarioRegistroDTO registroDto);
         Task<(UsuarioSessionDTO, string token)> Login(UsuarioLoginDTO loginDto);
+        Task<bool> Logout(UsuarioLogoutDTO logoutDTO);
     }
 }
