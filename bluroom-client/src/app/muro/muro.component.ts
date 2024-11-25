@@ -4,6 +4,7 @@ import { SubGroupResponse, SubGroupService } from '../services/sub-group.service
 import { ActivatedRoute } from '@angular/router';
 import { SubgrupoUserService } from '../services/subgrupo-user.service';
 import { PublicacionesService } from '../services/publicaciones.service';
+import { ChatService } from '../services/chat.service';
 
 @Component({
   selector: 'app-muro',
@@ -12,6 +13,7 @@ import { PublicacionesService } from '../services/publicaciones.service';
 })
 export class MuroComponent {
   listaDeAlumnos: Alumno[] = [];
+  alumnoSeleccionado: Alumno | null = null;
   publicaciones: any[] = [];
   usuarioActivo: any;
   grupoId: number = 0;
@@ -25,7 +27,8 @@ export class MuroComponent {
     private route: ActivatedRoute,
     private subGroupService: SubGroupService,
     private subgrupoUserService: SubgrupoUserService,
-    private publicacionesService: PublicacionesService
+    private publicacionesService: PublicacionesService,
+    private chatService: ChatService,
   ) { }
 
   ngOnInit(): void {
@@ -90,7 +93,7 @@ export class MuroComponent {
   mostrarMuro(subgrupo: { id: number, nombre: string }) {
     this.subgrupoSeleccionado = subgrupo;
     this.isMuroVisible = true;
-    //this.loadUserBySubgrupo(subgrupo);
+    this.loadUserBySubgrupo(subgrupo);
 
     const usuarioLocalStorage = localStorage.getItem('usuario');
     if (usuarioLocalStorage) {
@@ -145,6 +148,20 @@ export class MuroComponent {
   }
 
   onAlumnoSeleccionado(alumno: Alumno) {
-    console.log('Alumno seleccionado:', alumno);
+    this.alumnoSeleccionado = alumno;
+  }
+  iniciarChat(): void {
+    if (this.alumnoSeleccionado) {
+      const usuarioId = JSON.parse(localStorage.getItem('usuario') || '{}').id;
+
+      this.chatService.createChat(usuarioId, this.alumnoSeleccionado.id).subscribe(
+        response => {
+          console.log('Chat iniciado con éxito:', response);
+        },
+        error => {
+          console.error('Error al iniciar el chat:', error);
+        }
+      );
+    }
   }
 }
