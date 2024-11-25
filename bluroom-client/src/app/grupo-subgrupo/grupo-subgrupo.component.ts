@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { SubGroupService } from '../services/sub-group.service';
 import { ActivatedRoute } from '@angular/router';
@@ -28,6 +28,7 @@ export class GrupoSubgrupoComponent {
   @Input() grupoText: string = 'Grupo';
   @Input() grupoId: number = 0; // Agregado para el ID del grupo
   @Input() subgrupos: { id: number; nombre: string }[] = [];
+  @Output() subgrupoSeleccionado: EventEmitter<{ id: number, nombre: string }> = new EventEmitter();
   isModalOpen: boolean = false;
   newSubgrupoName: string = '';
 
@@ -37,6 +38,9 @@ export class GrupoSubgrupoComponent {
     private route: ActivatedRoute,) { }
   // Abrir modal
 
+  onSubgrupoSeleccionado(subgrupo: { id: number, nombre: string }) {
+    this.subgrupoSeleccionado.emit(subgrupo);
+  }
 
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;

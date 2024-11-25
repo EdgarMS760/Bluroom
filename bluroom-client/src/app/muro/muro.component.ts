@@ -28,6 +28,8 @@ export class MuroComponent {
   grupoId: number = 0;
   grupoText: string = '';
   subgrupos: { id: number, nombre: string }[] = [];
+  isMuroVisible: boolean = false;  
+  subgrupoSeleccionado: { id: number, nombre: string } = { id: 0, nombre: '' };
 
   constructor(
     private route: ActivatedRoute,
@@ -43,13 +45,17 @@ export class MuroComponent {
       console.error('ID del grupo no encontrado en la URL');
     }
   }
+  mostrarMuro(subgrupo: { id: number, nombre: string }) {
+    this.subgrupoSeleccionado = subgrupo;
+    this.isMuroVisible = true;
+  }
   loadSubgroups(groupId: number): void {
     this.subGroupService.getSubgroupsByGroupId(groupId).subscribe(
       (response: SubGroupResponse) => {
         this.grupoText = response.nombre;
         this.subgrupos = response.subgrupos.map(subgrupo => ({
-          id: subgrupo.subgrupoId, // Usamos el subgrupoId como el id
-          nombre: subgrupo.nombre   // Nombre del subgrupo
+          id: subgrupo.subgrupoId,
+          nombre: subgrupo.nombre 
         }));
       },
       (error) => {

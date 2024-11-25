@@ -1,7 +1,9 @@
 <div class="container border border-2 m-4">
   <div class="grupos">
     <app-grupo-subgrupo [grupoText]="grupoText"
-                        [subgrupos]="subgrupos">
+                        [subgrupos]="subgrupos"
+                        (subgrupoSeleccionado)="mostrarMuro($event)"
+                        >
     </app-grupo-subgrupo>
   </div>
   <div class="alumnos">
@@ -10,30 +12,35 @@
     </app-lista-alumnos>
 
   </div>
-  <div class="muro">
+  <div class="muro" *ngIf="isMuroVisible">
+    <div class="subgrupo-header">
+      <app-subgrupo-header [nombreSubgrupo]="subgrupoSeleccionado.nombre"
+                           [idSubgrupo]="subgrupoSeleccionado.id">
+      </app-subgrupo-header>
 
-    <div class="publicaciones">
-      <app-mensaje-enviado *ngFor="let mensaje of mensajesEnviado" [mensaje]="mensaje"></app-mensaje-enviado>
-      <app-mensaje-recibido *ngFor="let mensaje of mensajesRecibido" [mensaje]="mensaje"></app-mensaje-recibido>
     </div>
-    <form class="border border-primary rounded-4 d-flex p-2 m-4">
-      <div class="input-group">
-        <input type="text" class="form-control border-0" placeholder="Escribe un mensaje..." aria-label="publicar">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-          </svg>
-        </button>
-        <button type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
-            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
-          </svg>
-        </button>
-        <button type="button">
-          <i class="bi-send-fill h3" ></i>
-        </button>
+      <div class="publicaciones">
+        <app-mensaje-enviado *ngFor="let mensaje of mensajesEnviado" [mensaje]="mensaje"></app-mensaje-enviado>
+        <app-mensaje-recibido *ngFor="let mensaje of mensajesRecibido" [mensaje]="mensaje"></app-mensaje-recibido>
       </div>
-    </form>
-    <app-email-modal></app-email-modal>
+      <form class="border border-primary rounded-4 d-flex p-2 m-4">
+        <div class="input-group">
+          <input type="text" class="form-control border-0" placeholder="Escribe un mensaje..." aria-label="publicar">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+            </svg>
+          </button>
+          <button type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+              <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+            </svg>
+          </button>
+          <button type="button">
+            <i class="bi-send-fill h3"></i>
+          </button>
+        </div>
+      </form>
+      <app-email-modal></app-email-modal>
+    </div>
   </div>
-</div>

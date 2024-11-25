@@ -5,7 +5,7 @@
   </app-button>
   <div class="" [@collapseAnimation]="isCollapsed ? 'collapsed' : 'expanded'" class="mt-2">
     <div class="d-flex row">
-      <app-subgrupo *ngFor="let subgrupo of subgrupos" [subgrupo]="subgrupo"></app-subgrupo>
+      <app-subgrupo *ngFor="let subgrupo of subgrupos" [subgrupo]="subgrupo" (subgrupoSeleccionado)="onSubgrupoSeleccionado($event)"></app-subgrupo>
 
     </div>
     <button type="button" data-bs-toggle="modal"
