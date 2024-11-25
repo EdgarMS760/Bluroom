@@ -7,4 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MensajeRecibidoComponent {
   @Input() mensaje: string = '';
+  @Input() archivos: string[] = [];
+  @Input() nombre: string = ''; 
+  @Input() fecha: Date = new Date();
 }

@@ -21,6 +21,7 @@ namespace DB
         public bool EstaEnLinea { get; set; }
 
         public virtual ICollection<SubGrupo> GruposCreados { get; set; }
+        public ICollection<SubGrupoUsuario> SubgruposUsuarios { get; set; }
 
     }
     public enum Avatar

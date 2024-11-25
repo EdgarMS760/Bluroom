@@ -21,6 +21,7 @@ namespace DB
 
         public string Nombre { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public ICollection<SubGrupoUsuario> SubgruposUsuarios { get; set; }
 
     }
 }

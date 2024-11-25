@@ -1,3 +1,16 @@
 <div class="box3 sb14 mt-4 mb-4">
+  <div class="informacion mb-2 d-flex justify-content-between">
+    <span class="hora text-white">{{ fecha | date: 'short' }}</span>
+    <span class="nombre font-weight-bold">{{ nombre }} </span>
+  </div>
   <div class="contenido">{{ mensaje }}</div>
+
+  <!-- Mostrar archivos si existen -->
+  <div *ngIf="archivos && archivos.length > 0" class="archivos mt-2">
+    <div *ngFor="let archivo of archivos" class="archivo">
+      <a [href]="archivo" target="_blank" class="archivo-link">
+        <i class="bi bi-file-earmark-arrow-down"></i> Archivo
+      </a>
+    </div>
+  </div>
 </div>

@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/bluroom-client/src/environments/environment.ts
+/bluroom-client/src/environments/environment.prod.ts

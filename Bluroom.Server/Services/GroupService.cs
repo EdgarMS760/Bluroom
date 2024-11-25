@@ -38,11 +38,31 @@ namespace Bluroom.Server.Services
         }
         public async Task<List<Grupo>> IndexById(int usuarioId)
         {
-            var grupos = await _context.Grupos
-                .Where(g => g.Usuario_Id == usuarioId)
+            var gruposPropios = _context.Grupos
+                .Where(g => g.Usuario_Id == usuarioId);
+
+            var gruposPorSubgrupos = _context.SubgruposUsuarios
+                .Where(su => su.UsuarioId == usuarioId)
+                .Join(
+                    _context.Subgrupos,
+                    su => su.SubgrupoId,
+                    s => s.SubgrupoId,
+                    (su, s) => s.GrupoId
+                )
+                .Distinct()
+                .Join(
+                    _context.Grupos,
+                    grupoId => grupoId,
+                    g => g.Grupo_Id,
+                    (grupoId, g) => g
+                );
+
+            var grupos = await gruposPropios
+                .Union(gruposPorSubgrupos)
                 .ToListAsync();
 
             return grupos;
         }
+
     }
 }
