@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SubgrupoUserService } from '../services/subgrupo-user.service';
 
 @Component({
   selector: 'app-subgrupo-header',
@@ -8,13 +9,9 @@ import { Component, Input } from '@angular/core';
 export class SubgrupoHeaderComponent {
   @Input() nombreSubgrupo: string = '';
   @Input() idSubgrupo: number = 0;
- 
+  constructor(private subgrupoUserService: SubgrupoUserService) { }
   searchQuery: string = '';
   usuarios: { id: number, nombre: string }[] = [
-    { id: 1, nombre: 'Juan Pérez' },
-    { id: 2, nombre: 'María García' },
-    { id: 3, nombre: 'Carlos López' },
-    { id: 4, nombre: 'Ana Gómez' },
   ];
   filteredUsuarios: { id: number, nombre: string }[] = [];
   selectedUsuarios: { id: number, nombre: string }[] = []; 
@@ -29,7 +26,11 @@ export class SubgrupoHeaderComponent {
       usuario.nombre.toLowerCase().includes(query)
     );
   }
-
+  ngOnInit(): void {
+    if (this.idSubgrupo) {
+      this.loadUsuariosNoEnSubgrupo();
+    }
+  }
   toggleSelection(usuario: { id: number, nombre: string }): void {
     const index = this.selectedUsuarios.findIndex(u => u.id === usuario.id);
     if (index === -1) {
@@ -45,6 +46,31 @@ export class SubgrupoHeaderComponent {
   agregarUsuario(): void {
     console.log('Subgrupo ID:', this.idSubgrupo);
     console.log('Usuarios seleccionados:', this.selectedUsuarios);
+
+    this.selectedUsuarios.forEach(usuario => {
+      this.subgrupoUserService.agregarUsuario(this.idSubgrupo, usuario.id).subscribe({
+        next: (response) => {
+          console.log(`Usuario ${usuario.nombre} agregado correctamente.`, response);
+        },
+        error: (err) => {
+          console.error(`Error al agregar usuario ${usuario.nombre}`, err);
+        }
+      });
+    });
   }
-  
+  loadUsuariosNoEnSubgrupo(): void {
+    this.subgrupoUserService.getUsuariosNoEnSubgrupo(this.idSubgrupo).subscribe({
+      next: (usuarios) => {
+       
+        this.usuarios = usuarios.map(usuario => ({
+          id: usuario.id,  
+          nombre: usuario.nombre,  
+        }));
+        console.log('Usuarios obtenidos:', this.usuarios);  
+      },
+      error: (err) => {
+        console.error('Error al obtener usuarios', err);
+      }
+    });
+  }
 }

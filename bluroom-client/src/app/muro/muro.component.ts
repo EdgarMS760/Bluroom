@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Alumno } from '../lista-alumnos/alumno.model';
 import { SubGroupResponse, SubGroupService } from '../services/sub-group.service';
 import { ActivatedRoute } from '@angular/router';
+import { SubgrupoUserService } from '../services/subgrupo-user.service';
 
 @Component({
   selector: 'app-muro',
@@ -9,20 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './muro.component.css'
 })
 export class MuroComponent {
-  listaDeAlumnos: Alumno[] = [
-    { id: 1, nombre: 'Edgar Martinez', fotoUrl: 'https://picsum.photos/200' },
-    { id: 2, nombre: 'Jesus De La Cruz', fotoUrl: 'https://picsum.photos/200' },
-    { id: 3, nombre: 'Gael Reyes', fotoUrl: 'https://picsum.photos/200' },
-    { id: 4, nombre: 'Edgar Martinez', fotoUrl: 'https://picsum.photos/200' },
-    { id: 5, nombre: 'Jesus De La Cruz', fotoUrl: 'https://picsum.photos/200' },
-    { id: 6, nombre: 'Gael Reyes', fotoUrl: 'https://picsum.photos/200' },
-    { id: 7, nombre: 'Edgar Martinez', fotoUrl: 'https://picsum.photos/200' },
-    { id: 8, nombre: 'Jesus De La Cruz', fotoUrl: 'https://picsum.photos/200' },
-    { id: 9, nombre: 'Gael Reyes', fotoUrl: 'https://picsum.photos/200' },
-    { id: 10, nombre: 'Edgar Martinez', fotoUrl: 'https://picsum.photos/200' },
-    { id: 11, nombre: 'Jesus De La Cruz', fotoUrl: 'https://picsum.photos/200' },
-    { id: 12, nombre: 'Gael Reyes', fotoUrl: 'https://picsum.photos/200' }
-  ];
+  listaDeAlumnos: Alumno[] = [];
   mensajesEnviado: string[] = ['hola grupo', 'el proyecto se entrega la siguiente semana'];
   mensajesRecibido: string[] = ['enterado', 'como asi?'];
   grupoId: number = 0;
@@ -33,7 +21,8 @@ export class MuroComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private subGroupService: SubGroupService
+    private subGroupService: SubGroupService,
+    private subgrupoUserService: SubgrupoUserService
   ) { }
 
   ngOnInit(): void {
@@ -44,10 +33,24 @@ export class MuroComponent {
     } else {
       console.error('ID del grupo no encontrado en la URL');
     }
+
   }
   mostrarMuro(subgrupo: { id: number, nombre: string }) {
     this.subgrupoSeleccionado = subgrupo;
     this.isMuroVisible = true;
+    //this.loadUserBySubgrupo(subgrupo);
+  }
+  loadUserBySubgrupo(subgrupo: { id: number, nombre: string }) {
+    this.subgrupoUserService.getUsuariosBySubgrupoId(subgrupo.id)
+      .subscribe(
+        (data) => {
+          this.listaDeAlumnos = data;
+          console.log(this.listaDeAlumnos);
+        },
+        (error) => {
+          console.log('Error al obtener los usuarios:', error);
+        }
+      );
   }
   loadSubgroups(groupId: number): void {
     this.subGroupService.getSubgroupsByGroupId(groupId).subscribe(
