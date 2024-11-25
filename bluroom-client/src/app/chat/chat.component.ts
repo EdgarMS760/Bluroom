@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SignalrService } from '../signalr.service';
 import { MensajesService } from '../services/mensajes.service';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -14,9 +16,10 @@ export class ChatComponent {
   headerUser: any = null;
   archivosSeleccionados: File[] = [];
   mensajes: any[] = [];
+  private statusSubscription?: Subscription;
 
   usuarioActivo: any;
-  constructor(private signalRService: SignalrService, private mensajesService: MensajesService) { }
+  constructor(private signalRService: SignalrService, private mensajesService: MensajesService, private authService: AuthService) { }
 
   ngOnInit(): void {
     //this.signalRService.startConnection();
@@ -33,7 +36,9 @@ export class ChatComponent {
     console.log('Chat seleccionado en ChatComponent:', chatInfo);
     const usuarioLocal = localStorage.getItem('usuario');
     let usuarioNombre = '';
-
+    if (this.statusSubscription) {
+      this.statusSubscription.unsubscribe();
+    }
     this.headerUser = {
         id_user: chatInfo.id_user,
         image: chatInfo.image,
@@ -41,7 +46,11 @@ export class ChatComponent {
         status: 'inactive'
       };
 
-
+    this.statusSubscription = this.authService.listenUserStatus(chatInfo.id_user, (status: boolean) => {
+      this.headerUser.status = status ? 'active' : 'inactive';
+      console.log(`Estado actualizado para ${chatInfo.name}: ${this.headerUser.status}`);
+    });
+  
     this.chatSeleccionado = chatInfo;
     const usuarioLocalStorage = localStorage.getItem('usuario');
     if (usuarioLocalStorage) {
@@ -84,6 +93,13 @@ export class ChatComponent {
       } catch (error) {
         console.error('Error al enviar el mensaje:', error);
       }
+    }
+
+  }
+  ngOnDestroy(): void {
+    // Cancelar la suscripción al destruir el componente
+    if (this.statusSubscription) {
+      this.statusSubscription.unsubscribe();
     }
   }
 }
