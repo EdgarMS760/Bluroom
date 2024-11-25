@@ -41,7 +41,8 @@ namespace Bluroom.Server.Controllers
             }
 
             return Ok(usuarios);
-        } [HttpGet]
+        } 
+        [HttpGet]
         [Route("NOindex/{id}")]
         public async Task<IActionResult> NOIndexById(int id)
         {

@@ -2,7 +2,8 @@
 
 <div class="list-group">
   <app-item-list-chat *ngFor="let chat of chats"
-                      [chatInfo]="chat">
+                      [chatInfo]="chat"
+                       (chatSelected)="onChatSelected($event)">>
   </app-item-list-chat>
 </div>
 

@@ -28,6 +28,18 @@ namespace DB
                 .WithMany(u => u.SubgruposUsuarios)
                 .HasForeignKey(su => su.UsuarioId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Chat>()
+          .HasOne(c => c.Usuario1)
+          .WithMany()
+          .HasForeignKey(c => c.Usuario1Id)
+          .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Chat>()
+                .HasOne(c => c.Usuario2)
+                .WithMany()
+                .HasForeignKey(c => c.Usuario2Id)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 

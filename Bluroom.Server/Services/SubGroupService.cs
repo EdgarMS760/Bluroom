@@ -39,7 +39,6 @@ namespace Bluroom.Server.Services
         }
         public async Task<object> IndexById(int idGrupo)
         {
-            // Obtener el grupo con su información básica
             var grupo = await _context.Grupos
                 .Where(g => g.Grupo_Id == idGrupo)
                 .Select(g => new
@@ -51,11 +50,9 @@ namespace Bluroom.Server.Services
 
             if (grupo == null)
             {
-                // Manejo de caso donde el grupo no existe
-                return null; // Puedes devolver un código de error personalizado si prefieres
+                return null;
             }
 
-            // Obtener los subgrupos asociados al grupo
             var subgrupos = await _context.Subgrupos
                 .Where(s => s.GrupoId == idGrupo)
                 .Select(s => new
@@ -66,7 +63,6 @@ namespace Bluroom.Server.Services
                 })
                 .ToListAsync();
 
-            // Construir el objeto de respuesta
             var respuesta = new
             {
                 GrupoId = grupo.GrupoId,
