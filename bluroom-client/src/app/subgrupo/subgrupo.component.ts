@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-subgrupo',
@@ -7,8 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class SubgrupoComponent {
   @Input() subgrupo!: { id: number; nombre: string };
-
-  handleButtonClick() {
-
+  @Output() subgrupoSeleccionado: EventEmitter<{ id: number, nombre: string }> = new EventEmitter();
+  onSubgrupoClick() {
+    this.subgrupoSeleccionado.emit({
+      id: this.subgrupo.id,
+      nombre: this.subgrupo.nombre
+    });
   }
 }

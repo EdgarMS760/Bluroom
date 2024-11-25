@@ -45,6 +45,7 @@ import { getVertexAI, provideVertexAI } from '@angular/fire/vertexai-preview';
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
+import { SubgrupoHeaderComponent } from './subgrupo-header/subgrupo-header.component';
 
 
 
@@ -74,7 +75,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     MainLayoutComponent,
     AuthLayoutComponent,
     InicioComponent,
-    GrupoCardComponent
+    GrupoCardComponent,
+    SubgrupoHeaderComponent
 
   ],
   imports: [
