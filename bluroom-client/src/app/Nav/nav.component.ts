@@ -25,7 +25,7 @@ export class NavComponent implements OnInit {
       this.usuario = JSON.parse(storedUser);
       //this.getImageUrl(this.usuario.avatar);
     }
-
+    this.loadUserStatus();
 
   }
   getImageUrl(avatar: string) {
@@ -42,4 +42,16 @@ export class NavComponent implements OnInit {
       alert('No se pudo actualizar el estado del usuario. Por favor, intenta de nuevo.');
     });
   }
+  loadUserStatus(): void {
+    const userId = JSON.parse(localStorage.getItem('usuario') || '{}').id;
+    this.authService.getUserStatus(String(userId)).subscribe({
+      next: (data) => {
+        this.status = data?.status || false;
+      },
+      error: (err) => {
+        console.error('Error al cargar el estado del usuario:', err);
+      }
+    });
+  }
+
 }

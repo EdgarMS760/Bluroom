@@ -72,4 +72,11 @@ export class AuthService {
 
     return subscription;
   }
+  getUserStatus(userId: string): Observable<any> {
+    return this.firestore
+      .collection('userStatus')
+      .doc(userId)
+      .valueChanges();
+  }
+
 }
