@@ -24,6 +24,13 @@ export class SidebarComponent {
   }
   onLogout() {
     const usuarioId = JSON.parse(localStorage.getItem('usuario') || '{}').id;
+    this.authService.updateUserStatus(usuarioId, false).then(() => {
+      console.log('Estado del usuario actualizado a inactivo');
+      this.router.navigate(['/login'])
+    }).catch(error => {
+      console.error('Error al actualizar el estado del usuario:', error);
+      alert('No se pudo actualizar el estado del usuario. Por favor, intenta de nuevo.');
+    });
     this.authService.logout(usuarioId).subscribe({
       next: (response) => {
         console.log('cierre de sesión exitoso', response);

@@ -28,6 +28,8 @@ export class RegistroComponent {
     this.authService.register(this.fullname, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Registro exitoso', response);
+        const userId = response.usuario_Id;
+        this.createUserFb(userId);
         this.router.navigate(['/login']);
       },
       error: (error) => {
@@ -38,5 +40,14 @@ export class RegistroComponent {
         this.loading = false; 
       }
     });
+  }
+  async createUserFb(userId: number): Promise<void> {
+      try {
+        await this.authService.createUserStatus(userId);
+       
+      } catch (error) {
+        console.error('Error al crear usuario en firebase:', error);
+      }
+    
   }
 }
