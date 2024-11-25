@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./subgrupo.component.css']
 })
 export class SubgrupoComponent {
-  @Input() subgrupoText: string = '';
+  @Input() subgrupo!: { id: number; nombre: string };
 
   handleButtonClick() {
 

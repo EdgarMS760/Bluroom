@@ -8,22 +8,19 @@ using System.Threading.Tasks;
 
 namespace DB
 {
-    public class Grupo
+    public class SubGrupo
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Grupo_Id { get; set; }
+        public int SubgrupoId { get; set; }
 
-        [ForeignKey("Creador")]
-        public int Usuario_Id { get; set; }
+        public int GrupoId { get; set; }
+
+        [ForeignKey("GrupoId")]
+        public Grupo Grupo { get; set; }
 
         public string Nombre { get; set; }
-
         public DateTime FechaCreacion { get; set; }
 
-        public virtual Usuario Creador { get; set; }
-
-        public virtual ICollection<SubGrupo> Subgrupos { get; set; }
     }
-
 }
