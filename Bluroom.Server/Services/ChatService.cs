@@ -17,9 +17,19 @@ namespace Bluroom.Server.Services
 
         public async Task<Chat> Create(ChatCreateDTO chatCreateDTO)
         {
-
             try
             {
+                var chatExistente = await _context.Chats
+                    .FirstOrDefaultAsync(c =>
+                        (c.Usuario1Id == chatCreateDTO.userId1 && c.Usuario2Id == chatCreateDTO.userId2) ||
+                        (c.Usuario1Id == chatCreateDTO.userId2 && c.Usuario2Id == chatCreateDTO.userId1));
+
+                if (chatExistente != null)
+                {
+                    Console.WriteLine("El chat ya existe.");
+                    return null;
+                }
+
                 var nuevoChat = new Chat
                 {
                     Usuario1Id = chatCreateDTO.userId1,
@@ -34,34 +44,48 @@ namespace Bluroom.Server.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al crear el grupo: {ex.Message}");
+                Console.WriteLine($"Error al crear el chat: {ex.Message}");
                 return null;
             }
         }
+
         public async Task<object> IndexById(int userId)
         {
-                   var chats = await _context.Chats
-            .Where(c => c.Usuario1Id == userId || c.Usuario2Id == userId)
-            .Select(c => new 
+            try
             {
-                c.Chat_id,
-                Usuario1 = new 
-                {
-                    Id = c.Usuario1Id,
-                    Nombre = _context.Usuarios.FirstOrDefault(u => u.Usuario_Id == c.Usuario1Id).FullName,
-                    Avatar = _context.Usuarios.FirstOrDefault(u => u.Usuario_Id == c.Usuario1Id).Avatar.ToString(),
-                },
-                Usuario2 = new 
-                {
-                    Id = c.Usuario2Id,
-                    Nombre = _context.Usuarios.FirstOrDefault(u => u.Usuario_Id == c.Usuario2Id).FullName,
-                    Avatar = _context.Usuarios.FirstOrDefault(u => u.Usuario_Id == c.Usuario2Id).Avatar.ToString()
-                }
-            })
-            .ToListAsync();
+                var chats = await _context.Chats
+                    .Where(c => c.Usuario1Id == userId || c.Usuario2Id == userId)
+                    .Select(c => new
+                    {
+                        c.Chat_id,
+                        Usuario1 = c.Usuario1Id == userId
+                            ? null
+                            : new
+                            {
+                                Id = c.Usuario1Id,
+                                Nombre = c.Usuario1.FullName,
+                                Avatar = c.Usuario1.Avatar.ToString()
+                            },
+                        Usuario2 = c.Usuario2Id == userId
+                            ? null
+                            : new
+                            {
+                                Id = c.Usuario2Id,
+                                Nombre = c.Usuario2.FullName,
+                                Avatar = c.Usuario2.Avatar.ToString()
+                            }
+                    })
+                    .ToListAsync();
 
-        return chats;
+                return chats;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los chats: {ex.Message}");
+                return null;
+            }
         }
+
 
     }
 }

@@ -34,27 +34,11 @@ export class ChatComponent {
     const usuarioLocal = localStorage.getItem('usuario');
     let usuarioNombre = '';
 
-    if (usuarioLocal) {
-      try {
-        usuarioNombre = JSON.parse(usuarioLocal).nombre;
-      } catch (error) {
-        console.error('Error al parsear usuario desde localStorage:', error);
-      }
-    }
-
-    if (usuarioNombre === chatInfo.name) {
-      this.headerUser = {
-        image: chatInfo.otherImage,
-        name: chatInfo.otherName,
-        status: 'active'
-      };
-    } else {
       this.headerUser = {
         image: chatInfo.image,
         name: chatInfo.name,
         status: 'active'
       };
-    }
 
 
     this.chatSeleccionado = chatInfo;

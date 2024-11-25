@@ -24,13 +24,31 @@ export class ChatService {
 
   getChatsByUserId(userId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/index/${userId}`).pipe(
-      map(chats => chats.map(chat => ({
-        image: chat.usuario1?.avatar || 'https://via.placeholder.com/50',
-        name: chat.usuario1?.nombre,
-        otherImage: chat.Usuario2?.avatar || 'https://via.placeholder.com/50',
-        otherName: chat.usuario2?.nombre, 
-        id: chat.chat_id,
-      })))
+      map(chats =>
+        chats.map(chat => {
+          if (!chat.usuario1) {
+            return {
+              id: chat.chat_id,
+              image: chat.usuario2?.avatar || 'https://via.placeholder.com/50',
+              name: chat.usuario2?.nombre,
+            };
+          } else if (!chat.usuario2) {
+            return {
+              id: chat.chat_id,
+              image: chat.usuario1?.avatar || 'https://via.placeholder.com/50',
+              name: chat.usuario1?.nombre,
+            };
+          } else {
+            return {
+              id: chat.chat_id,
+              image: chat.usuario1?.avatar || 'https://via.placeholder.com/50',
+              name: chat.usuario1?.nombre,
+            };
+          }
+        })
+      )
     );
   }
+
+
 }
