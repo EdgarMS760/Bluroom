@@ -34,10 +34,11 @@ export class ChatComponent {
     const usuarioLocal = localStorage.getItem('usuario');
     let usuarioNombre = '';
 
-      this.headerUser = {
+    this.headerUser = {
+        id_user: chatInfo.id_user,
         image: chatInfo.image,
         name: chatInfo.name,
-        status: 'active'
+        status: 'inactive'
       };
 
 

@@ -31,18 +31,21 @@ export class ChatService {
               id: chat.chat_id,
               image: chat.usuario2?.avatar || 'https://via.placeholder.com/50',
               name: chat.usuario2?.nombre,
+              id_user: chat.usuario2?.id
             };
           } else if (!chat.usuario2) {
             return {
               id: chat.chat_id,
               image: chat.usuario1?.avatar || 'https://via.placeholder.com/50',
               name: chat.usuario1?.nombre,
+              id_user: chat.usuario1?.id
             };
           } else {
             return {
               id: chat.chat_id,
               image: chat.usuario1?.avatar || 'https://via.placeholder.com/50',
               name: chat.usuario1?.nombre,
+              id_user: chat.usuario1?.id
             };
           }
         })
