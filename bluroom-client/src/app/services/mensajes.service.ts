@@ -13,6 +13,46 @@ export class MensajesService {
     private firestore: AngularFirestore,
     private storage: AngularFireStorage
   ) { }
+  async iniciarVideollamada(chatId: string, usuarioId: string, nombre: string): Promise<void> {
+  if (!chatId) throw new Error("El ID del chat (chatId) no está definido.");
+  if (!usuarioId) throw new Error("El ID del usuario (usuarioId) no está definido.");
+  if (!nombre) throw new Error("El nombre del usuario (nombre) no está definido.");
+
+  const estadoLlamada = {
+    chatId,
+    usuarioId,
+    nombre,
+    activa: true,
+    fechaInicio: new Date(),
+  };
+
+  try {
+    await this.firestore.collection('videollamadas').doc(chatId).set(estadoLlamada);
+    console.log('Estado de la videollamada guardado en Firebase.');
+  } catch (error) {
+    console.error('Error al registrar la videollamada en Firebase:', error);
+    throw error;
+  }
+}
+
+  async finalizarVideollamada(chatId: string): Promise<void> {
+    try {
+      await this.firestore.collection('videollamadas').doc(chatId).update({ activa: false, fechaFin: new Date() });
+      console.log('Videollamada finalizada');
+    } catch (error) {
+      console.error('Error al finalizar la videollamada:', error);
+      throw new Error('No se pudo finalizar la videollamada.');
+    }
+  }
+
+  getEstadoVideollamada(chatId: string): Observable<{ activa: boolean }> {
+    return this.firestore
+      .collection('videollamadas')
+      .doc(chatId)
+      .valueChanges() as Observable<{ activa: boolean }>;
+  }
+
+
 
   // Método para subir archivos
   private subirArchivo(file: File): Promise<string> {
