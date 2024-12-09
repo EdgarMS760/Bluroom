@@ -40,6 +40,7 @@ export class ChatComponent {
       this.statusSubscription.unsubscribe();
     }
     this.headerUser = {
+        id_chat:chatInfo.id,
         id_user: chatInfo.id_user,
         image: chatInfo.image,
         name: chatInfo.name,
