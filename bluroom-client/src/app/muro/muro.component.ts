@@ -42,6 +42,7 @@ export class MuroComponent {
       console.error('ID del grupo no encontrado en la URL');
     }
   }
+
   seleccionarArchivo() {
     const input = document.createElement('input');
     input.type = 'file';
@@ -154,6 +155,7 @@ export class MuroComponent {
       }
     );
   }
+
   cargarPublicaciones(subgrupoId: number): void {
     this.publicacionesService.getPublicacionesPorSubgrupo(subgrupoId)
       .subscribe(publicacionesSnapshot => {

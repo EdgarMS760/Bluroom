@@ -7,9 +7,9 @@
           {{ grupo.nombre }}
         </button>
         <div *ngIf="grupo.seleccionado">
-          <div *ngFor="let subgrupo of grupo.subgrupos" (click)="seleccionarSubgrupo(subgrupo)" 
-            [ngClass]="{'subgroup-btn': true, 'active': subgrupoSeleccionado === subgrupo}">
-            {{ subgrupo }}
+          <div *ngFor="let subgrupo of grupo.subgrupos" (click)="seleccionarSubgrupo(subgrupo.nombre)"
+               [ngClass]="{'subgroup-btn': true, 'active': subgrupoSeleccionado === subgrupo.nombre}">
+            {{ subgrupo.nombre }}
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@
           <button class="btn tareas-completadas-btn" 
             [ngClass]="{'active': estadoSeleccionado === 'completadas'}" 
             (click)="seleccionarEstado('completadas')">Tareas Completadas</button>
-          <button class="btn add-task-btn d-flex justify-content-center align-items-center">
+          <button class="btn add-task-btn d-flex justify-content-center align-items-center" (click)="crearTarea()">
             <i class="bi bi-plus-lg fw-bold"></i>
           </button>
         </div>
