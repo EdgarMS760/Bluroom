@@ -42,6 +42,16 @@ namespace Bluroom.Server.Services
             return usuario;
         }
 
+        public async Task<bool> Logout(UsuarioLogoutDTO logoutDTO)
+        {
+            var usuario = await _context.Usuarios.SingleOrDefaultAsync(u => u.Usuario_Id == logoutDTO.user_id);
+
+
+            usuario.EstaEnLinea = false;
+            await _context.SaveChangesAsync();
+
+            return true;
+        } 
         public async Task<(UsuarioSessionDTO, string token)> Login(UsuarioLoginDTO loginDto)
         {
             var usuario = await _context.Usuarios.SingleOrDefaultAsync(u => u.Email == loginDto.Email);

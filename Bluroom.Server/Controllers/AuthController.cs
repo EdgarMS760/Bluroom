@@ -48,6 +48,20 @@ namespace Bluroom.Server.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] UsuarioLogoutDTO logoutDTO)
+        {
+            try
+            {
+                var result = await _authService.Logout(logoutDTO);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 
 }

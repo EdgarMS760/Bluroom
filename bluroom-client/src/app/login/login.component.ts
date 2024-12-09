@@ -33,6 +33,14 @@ export class LoginComponent {
 
   onLoginSuccess(response: any) {
     localStorage.setItem('usuario', JSON.stringify(response.usuario));
-    this.router.navigate(['/inicio']);
+    const userId = response.usuario.id;
+    this.authService.updateUserStatus(userId, true).then(() => {
+      console.log('Estado del usuario actualizado a activo');
+      this.router.navigate(['/inicio']); 
+    }).catch(error => {
+      console.error('Error al actualizar el estado del usuario:', error);
+      alert('No se pudo actualizar el estado del usuario. Por favor, intenta de nuevo.');
+    });
   }
+
 }

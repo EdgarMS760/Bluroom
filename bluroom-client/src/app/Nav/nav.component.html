@@ -8,16 +8,41 @@
         </svg>
       </a>
 
-    <div class="d-flex align-items-center">
-      <button class="rounded-3 btn btn-primary me-4 d-flex align-items-center">
-        <span class="me-2">ESTATUS</span>
-        <span class="badge bg-success rounded-circle" style="width: 10px; height: 10px;"></span>
-      </button>
-
       <div class="d-flex align-items-center">
-        <img *ngIf="avatar$ | async as avatar" [src]="avatar" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-        <span class="fw-bold">{{ usuario?.nombre }}</span>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle rounded-3 d-flex align-items-center"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+            <span [ngClass]="status === true ? 'bg-success' : 'bg-secondary'"
+                  class="rounded-circle me-2"
+                  style="width: 10px; height: 10px;">
+            </span>
+            <span>ESTATUS</span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <button class="dropdown-item"
+                      (click)="setStatus(true)">
+                Activo
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item"
+                      (click)="setStatus(false)">
+                Desconectado
+              </button>
+            </li>
+          </ul>
+        </div>
+
+
+
+        <div class="d-flex align-items-center">
+          <img *ngIf="avatar$ | async as avatar" [src]="avatar" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+          <span class="fw-bold">{{ usuario?.nombre }}</span>
+        </div>
       </div>
-    </div>
   </div>
 </nav>
