@@ -22,6 +22,8 @@ namespace DB
 
         public virtual ICollection<SubGrupo> GruposCreados { get; set; }
         public ICollection<SubGrupoUsuario> SubgruposUsuarios { get; set; }
+        public ICollection<Tarea> Tareas { get; set; }
+        public ICollection<TareaUsuario> TareaUsuarios { get; set; }
 
     }
     public enum Avatar

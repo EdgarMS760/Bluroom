@@ -14,15 +14,19 @@
 
       <!-- Selector de grupo -->
       <label for="grupo">Grupo:</label>
-      <select id="grupo" [(ngModel)]="grupoSeleccionado" (change)="cargarSubgrupos()" class="input-field">
-        <option *ngFor="let grupo of grupos" [value]="grupo">{{grupo}}</option>
+      <select id="grupo" [(ngModel)]="grupoSeleccionado" (change)="grupoSeleccionado?.id && cargarSubgrupos(grupoSeleccionado?.id)" class="input-field">
+        <option *ngFor="let grupo of grupos" [ngValue]="grupo">{{ grupo.nombre }}</option>
       </select>
 
       <!-- Selector de subgrupo -->
       <label for="subgrupo">Subgrupo:</label>
       <select id="subgrupo" [(ngModel)]="subgrupoSeleccionado" class="input-field">
-        <option *ngFor="let subgrupo of subgrupos" [value]="subgrupo">{{subgrupo}}</option>
+        <option *ngFor="let subgrupo of grupoSeleccionado?.subgrupos" [ngValue]="subgrupo">{{ subgrupo.nombre }}</option>
       </select>
+
+      <!-- Selector de fecha de vencimiento -->
+      <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+      <input type="date" id="fechaVencimiento" [(ngModel)]="fechaVencimiento" class="input-field">
     </div>
 
     <div class="button-container">
